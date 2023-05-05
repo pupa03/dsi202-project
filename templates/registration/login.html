@@ -1,0 +1,132 @@
+{% extends 'app_general/base.html' %}
+{% load static %}
+{% block title %}CHILLBOX LogIn{% endblock title %}
+<!DOCTYPE html>
+<html>
+<body>
+
+{% block background %}
+<body class="sub_page">
+  
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'images/hero-bg.jpg' %}" alt="">
+  </div>
+{% endblock background %}
+
+
+
+<!-- === header sub_page ===-->
+{% block header %}
+</div>
+{% endblock header %}
+
+{% block page_navbar %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav  mx-auto ">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'index' %}">HOME </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'feature' %}">FEATURE </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}">ABOUTUS</a>
+    </li>
+    
+  </ul>
+{% endblock page_navbar %}
+
+{% block body %}
+
+  <!-- ====== book section ======-->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        
+
+         {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+               <strong>{{message}}</strong>
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+         {% endfor %}
+
+        
+        <h2>
+          LogIn
+        </h2>
+      
+        
+        <div class="col-md-6">
+          <div class="form_container">
+            
+            <form action="{%url 'login' %}" method="post">
+              {% csrf_token %}
+                <br />
+              {{ form.non_field_errors }}
+
+                <label for="email">Email</label>
+                <div class="form-field">
+                <input 
+                  type="email" 
+                  class="form-control" 
+                  id="username" 
+                  name="username" 
+                  placeholder="Email"
+                  required
+                  />
+                {{ form.email.error }}
+               </div>
+
+                <label for="password">Password</label>
+                <div class="form-field">
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  name="password" 
+                  placeholder="Password"
+                  required
+                  />
+                {{ form.password.error }}
+               </div>
+            
+               {% if request.GET.next %}
+               <input type="hidden" name="next" value="{{ request.GET.next }}">
+             
+              {% endif %}
+
+              <div class="heading_container heading_center">
+                <button class="btn_box" type="submit">LogIn</button>
+              </div>
+              
+              <div>
+                <h3>
+                Don't have any? <a href = "{% url 'register' %}">SignUp</a>
+                <h3>
+              </div>
+              
+              <div>
+                <h3>
+                Forgot Password? <a href = "{% url 'password_reset' %}">Reset Password</a>
+                <h3>
+              </div>
+
+
+            </form>
+
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- ====== end book section ====== -->
+
+  {% endblock body %}
+
+</body>
+
+</html>

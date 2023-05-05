@@ -1,0 +1,47 @@
+<!-- Not Change -->
+
+{% block title %}แดชบอร์ด - {% endblock title %}
+
+{% block content %}
+<section class="content-section content-sec tion-single">
+  <div class="content-container content-container-narrow">
+    <h3 class="content-title">แดชบอร์ดของคุณ {{ user.username }}</h3>
+    <p>
+        <a href="{% url 'dashboard' %}">แดชบอร์ด</a>
+        <a href="{% url 'profile' %}">ข้อมูลผู้ใช้</a>
+        <a href="{% url 'password_change' %}">เปลี่ยนรหัสผ่าน</a>
+    </p>
+    <h5>ข้อมูลผู้ใช้</h5>
+    {% if flash_message %}
+        <p style="color: green;">{{ flash_message}}</p>
+    {% endif %}
+    <form action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <div class="form-field">
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+            {{ form.first_name.errors }}   
+        </div>
+        <div class="form-field">
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+            {{ form.last_name.errors }}   
+        </div>
+        <div class="form-field">
+            {{ extended_form.address.label_tag }}
+            {{ extended_form.address }}
+            {{ extended_form.address.errors }}   
+        </div>
+        <div class="form-field">
+            {{ extended_form.phone.label_tag }}
+            {{ extended_form.phone }}
+            {{ extended_form.phone.errors }}   
+        </div>
+        <p>
+           <button class="button button-primary" type="submit">บันทึก</button>
+        </p>
+     </form>
+
+  </div>
+</section>
+{% endblock %}

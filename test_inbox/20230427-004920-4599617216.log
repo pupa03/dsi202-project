@@ -1,0 +1,15 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Activate account
+From: webmaster@localhost
+To: abc@gmail.com
+Date: Wed, 26 Apr 2023 17:49:20 -0000
+Message-ID: 
+ <168253136075.83483.4380282107306696082@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+
+คลิกเพื่อ Activate account
+
+
+http://127.0.0.1:8000/users/activate/Mw/bnaia8-c8e1a213e5310e1338ce1e7eb8a5267e
+-------------------------------------------------------------------------------
