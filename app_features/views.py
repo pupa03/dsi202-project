@@ -129,7 +129,7 @@ def checkout(request):
     #Upload Slip
     if request.method == "POST":
         print("POST")
-        form = CheckoutForm(request.POST,request.FILES, instance=ImageModel)
+        form = CheckoutForm(request.POST,request.FILES)
         if form.is_valid():
             print("valid form")
             image = form.cleaned_data.get("image")
@@ -139,6 +139,7 @@ def checkout(request):
             print(obj)
 
             return redirect(reverse('checkout_thankyou'))
+        
         else :
             print("WHY ERROR")
             print(form.errors.as_data())

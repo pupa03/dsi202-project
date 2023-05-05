@@ -82,7 +82,7 @@
 
                 <div class="col-md-6">               
                   <div class="form_container">
-                    <form action="{%url 'checkout' %}" method="post">
+                    <form action="{% url 'checkout_thankyou' %}" method="post">
                       {% csrf_token %}
                       {{ form.non_field_errors }}
 
