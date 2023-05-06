@@ -54,6 +54,7 @@ def add_to_cart(request):
         num_of_item = cart.num_of_items
 
         print(cartitem)
+        print(num_of_item)
 
     return JsonResponse(num_of_item, safe=False)
 

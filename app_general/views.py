@@ -24,8 +24,6 @@ def base(request):
 def about(request):
     return render(request, 'app_general/about.html')
 
-def feature2(request):
-    return render(request, 'app_general/feature.html')
 
 
 

@@ -114,9 +114,10 @@ def activate(request: HttpRequest, uidb64: str, token: str):
 
 @login_required
 def dashboard(request: HttpRequest):
-    favorite_food_pivots = request.user.favorite_food_pivot_set.order_by("-level")
-    context = {"favorite_food_pivots": favorite_food_pivots}
-    return render(request, "app_users/dashboard.html", context)
+ 
+#   favorite_food_pivots = request.user.favorite_food_pivot_set.order_by("-level")
+#    context = {"favorite_food_pivots": favorite_food_pivots}
+    return render(request, "app_users/dashboard.html")
 
 
 
