@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'project_jrd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'django_x',
+        'NAME': '',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
