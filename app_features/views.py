@@ -108,7 +108,7 @@ def gen_code(mobile="", nid="", amount=""):
 
 from IPython.display import Image
 
-def get_qr(request,mobile="0863573091",nid="",amount=""):
+def get_qr(request,mobile="",nid="",amount=""):
     message="mobile: %s, nid: %s, amount: %s"%(mobile,nid,amount)
     print( message )
     code=gen_code(mobile=mobile, amount=float(amount))#scb
@@ -149,7 +149,7 @@ def checkout(request):
         form = CheckoutForm()
 
     context={
-        "mobile":"0863573091", #seller's mobile
+        "mobile":"", #seller's mobile
         "amount": price,
         "form": form,
     }
